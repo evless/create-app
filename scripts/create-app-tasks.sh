@@ -11,7 +11,7 @@ const del = require('del');
 
 module.exports = {
     name: 'clean',
-    description: 'Очистка папки с билдом\n\n',
+    description: 'Очистка папки с билдом\\\n\\\n',
     callback: function(done) {
         del(config.buildFolder()).then(() => done());
     }
@@ -29,7 +29,7 @@ const gutil = require('gulp-util');
 
 module.exports = {
     name: 'client:webpack:dev',
-    description: 'Собирает клиентскую часть в режиме разработки и запускает вотчер\n',
+    description: 'Собирает клиентскую часть в режиме разработки и запускает вотчер\\\n',
     callback: function(done) {
         let options = {
             watch: true,
@@ -60,7 +60,7 @@ const gutil = require('gulp-util');
 
 module.exports = {
     name: 'client:webpack:prod',
-    description: 'Собирает клиентскую часть в для продакшн\n\n',
+    description: 'Собирает клиентскую часть в для продакшн\\\n\\\n',
     callback: function(done) {
         let options = {
 
@@ -76,7 +76,7 @@ module.exports = {
         });
     }
 }
-" > client.webpack.prod.js
+" > tasks/client.webpack.prod.js
 
 # dev
 echo \
@@ -88,7 +88,7 @@ const sequence = require('gulp-sequence');
 
 module.exports = {
     name: 'dev',
-    description: 'Developers сборка, включает в себя сборку статики, сервера и навешивания на них вотчеров\n',
+    description: 'Developers сборка, включает в себя сборку статики, сервера и навешивания на них вотчеров\\\n',
     callback: function(done) {
         sequence('clean', ['server:start:dev', 'client:webpack:dev'], () => {
             done();
@@ -108,9 +108,9 @@ const fs = require('fs');
 
 module.exports = {
     name: 'help',
-    description: 'Выводит список команд\n',
+    description: 'Выводит список команд\\\n',
     callback: function(done) {
-        let logs = '\u001b[32m\n\n Gulp commands: \n\n\u001b[32m';
+        let logs = '\u001b[32m\\\n\\\n Gulp commands: \\\n\\\n\u001b[32m';
 
         const tasks = fs.readdirSync(path.join(__dirname, '..', 'tasks')).sort();
         tasks.forEach(function(task) {
@@ -134,7 +134,7 @@ const sequence = require('gulp-sequence');
 
 module.exports = {
     name: 'prod:start',
-    description: 'Production cборка, включает сборку статики, сервера, запуск БД\n',
+    description: 'Production cборка, включает сборку статики, сервера, запуск БД\\\n',
     callback: function(done) {
         sequence('clean', 'client:webpack:prod', 'db:start', 'server:start:prod', () => {
             done();
@@ -153,7 +153,7 @@ const sequence = require('gulp-sequence');
 
 module.exports = {
     name: 'prod:stop',
-    description: 'Production cборка, останавливает сервер и БД\n\n',
+    description: 'Production cборка, останавливает сервер и БД\\\n\\\n',
     callback: function(done) {
         sequence('clean', 'db:stop', 'server:stop:prod', () => {
             done();
@@ -172,7 +172,7 @@ const nodemon = require('gulp-nodemon');
 
 module.exports = {
     name: 'server:start:dev',
-    description: 'Запуск сервера в режиме разработки с вотчером\n',
+    description: 'Запуск сервера в режиме разработки с вотчером\\\n',
     callback: function(done) {
         nodemon({
             nodeArgs: ['--debug'],
@@ -193,7 +193,7 @@ const exec = require('child_process').exec;
 
 module.exports = {
     name: 'server:start:prod',
-    description: 'Запуск сервера в режиме продакшена\n',
+    description: 'Запуск сервера в режиме продакшена\\\n',
     callback: function(done) {
         exec('NODE_ENV=production node_modules/forever/bin/forever start server/index.js --minUptime 1000 --spinSleepTime 1000', (err, stdout, stderr) => {
             console.log(stdout)
@@ -214,7 +214,7 @@ const exec = require('child_process').exec;
 
 module.exports = {
     name: 'server:start:restart',
-    description: 'Рестарт сервера\n',
+    description: 'Рестарт сервера\\\n',
     callback: function(done) {
         exec('node_modules/forever/bin/forever restart server/index.js', (err, stdout, stderr) => {
             console.log(stdout)
@@ -235,7 +235,7 @@ const exec = require('child_process').exec;
 
 module.exports = {
     name: 'server:stop:prod',
-    description: 'Останавливает сервер\n',
+    description: 'Останавливает сервер\\\n',
     callback: function(done) {
         exec('node_modules/forever/bin/forever stop server/index.js', (err, stdout, stderr) => {
             console.log(stdout)

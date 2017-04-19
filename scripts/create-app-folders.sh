@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Создаем каталоги
-mkdir \
+mkdir -p \
     client \
         client/app \
         client/public \

@@ -1,8 +1,4 @@
-#!/bin/bash
 
-# Ключевой файл для сервера
-echo \
-"
 'use strict';
 
 const config = require('config');
@@ -42,4 +38,4 @@ app.use(function *(next) {
 
 // Запуск сервера
 app.listen(config.port);
-" > server/index.js
+
