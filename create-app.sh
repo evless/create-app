@@ -54,9 +54,11 @@ echo "
     -> webpack.config.js
     -> README.md
     -> .gitignore
+\033[0m
 "
 
 # Установка npm пакетов
+npm init
 sh $path/scripts/install-npm-packages.sh
 
 echo "\033[1;32m\n\n npm packages installed"
