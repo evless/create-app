@@ -20,33 +20,33 @@
 ## Структура
 
 ```
-/client
-    /app
-        /app.js
-    /public
-        /images
-        /scss
-        /templates
-            /index.html
-/server
-    /models
-    /routers
-    /middlewares
-    /index.js
-/config
-    /default.js
-/tasks
-    /clean.js
-    /client.webpack.dev.js
-    /client.webpack.prod.js
-    /dev.js
-    /help.js
-    /prod.start.js
-    /prod.stop.js
-    /server.start.dev.js
-    /server.start.prod.js
-    /server.start.restart.js
-    /server.stop.prod.js
+client/
+    app/
+        app.js
+    public/
+        images/
+        scss/
+        templates/
+            index.html
+server/
+    models/
+    routers/
+    middlewares/
+    index.js
+config/
+    default.js
+tasks/
+    clean.js
+    client.webpack.dev.js
+    client.webpack.prod.js
+    dev.js
+    help.js
+    prod.start.js
+    prod.stop.js
+    server.start.dev.js
+    server.start.prod.js
+    server.start.restart.js
+    server.stop.prod.js
 gulpfile.js
 webpack.config.js
 .gitignore
